@@ -63,7 +63,7 @@
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ElectronicObserverExtended\ElectronicObserver\ElectronicObserver.csproj">
+    <ProjectReference Include="..\ElectronicObserverExtended\ElectronicObserver\ElectronicObserver.csproj">
       <Project>{A9ABEC50-1BFC-4C69-87AE-C68DB6004F68}</Project>
       <Name>ElectronicObserver</Name>
     </ProjectReference>
@@ -78,4 +78,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).dll" "$(ProjectDir)..\output\"
+copy "$(TargetDir)$(TargetName).pdb" "$(ProjectDir)..\output\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -18,6 +18,7 @@ namespace Kusozako
     public class Kusozako : ServerPlugin
     {
 	    public override string MenuTitle => "クソ雑魚回線やめてください";
+	    public override string Version => "<BUILD_VERSION>";
 
 	    private const string PLUGIN_SETTINGS = @"Settings\Kusozako.json";
 	    public Settings settings;
