@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kusozako
 {
-	class Settings
+	public class Settings
 	{
-		public bool Enabled { get; set; } = true;
+		public bool Enabled { get; set; } = false;
 		public string Proxy { get; set; } = "";
 		public string ProberUri { get; set; } = "/kcs2/version.json";
 		public int MaxDepth { get; set; } = 2434;

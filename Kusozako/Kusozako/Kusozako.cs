@@ -20,7 +20,7 @@ namespace Kusozako
 	    public override string MenuTitle => "クソ雑魚回線やめてください";
 
 	    private const string PLUGIN_SETTINGS = @"Settings\Kusozako.json";
-	    private Settings settings;
+	    public Settings settings;
 	    private HttpClient httpClient;
 
 		public override bool RunService(FormMain main)
@@ -29,6 +29,16 @@ namespace Kusozako
 				settings = DynamicJson.Parse(File.ReadAllText(PLUGIN_SETTINGS)).Deserialize<Settings>();
 			else
 				settings = new Settings();
+
+			createHttpClient();
+
+			FiddlerApplication.BeforeRequest += FiddlerApplication_BeforeRequest;
+			return true;
+		}
+
+		private void createHttpClient()
+		{
+			httpClient?.Dispose();
 
 			if (settings.Proxy.Length > 0)
 			{
@@ -42,11 +52,7 @@ namespace Kusozako
 			{
 				httpClient = new HttpClient();
 			}
-
 			httpClient.Timeout = TimeSpan.FromSeconds(10);
-
-			FiddlerApplication.BeforeRequest += FiddlerApplication_BeforeRequest;
-			return true;
 		}
 
 		private void FiddlerApplication_BeforeRequest(Session oSession)
@@ -96,6 +102,13 @@ namespace Kusozako
 				Directory.CreateDirectory("Settings");
 			}
 			File.WriteAllText(PLUGIN_SETTINGS, DynamicJson.Serialize(settings));
+
+			createHttpClient();
+		}
+
+		public override PluginSettingControl GetSettings()
+		{
+			return new KusozakoSettingsControl(this);
 		}
 
 	}
