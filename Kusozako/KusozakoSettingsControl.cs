@@ -26,6 +26,7 @@ namespace Kusozako
 			checkBoxEnabled.Checked = plugin.settings.Enabled;
 			textBoxProxy.Text = plugin.settings.Proxy;
 			textBoxProberUri.Text = plugin.settings.ProberUri;
+			checkBoxAllowClientErrors.Checked = plugin.settings.AllowClientErrors;
 			numericUpDownMaxRetries.Value = plugin.settings.MaxDepth;
 		}
 
@@ -34,6 +35,7 @@ namespace Kusozako
 			plugin.settings.Enabled = checkBoxEnabled.Checked;
 			plugin.settings.Proxy = textBoxProxy.Text;
 			plugin.settings.ProberUri = textBoxProberUri.Text;
+			plugin.settings.AllowClientErrors = checkBoxAllowClientErrors.Checked;
 			plugin.settings.MaxDepth = (int) numericUpDownMaxRetries.Value;
 			plugin.SaveSettings();
 			return true;

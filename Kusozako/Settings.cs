@@ -11,6 +11,7 @@ namespace Kusozako
 		public bool Enabled { get; set; } = false;
 		public string Proxy { get; set; } = "";
 		public string ProberUri { get; set; } = "/kcs2/version.json";
+		public bool AllowClientErrors { get; set; } = false;
 		public int MaxDepth { get; set; } = 2434;
 	}
 }

@@ -78,7 +78,8 @@ namespace Kusozako
 			var responsive = false;
 			try
 			{
-				responsive = httpClient.GetAsync(url).Result.IsSuccessStatusCode;
+				var response = httpClient.GetAsync(url).Result;
+				responsive = response.IsSuccessStatusCode || (settings.AllowClientErrors && isClientError(response.StatusCode));
 			}
 			catch
 			{ 
@@ -90,6 +91,11 @@ namespace Kusozako
 				Thread.Sleep(TimeSpan.FromSeconds(sleepSeconds));
 				waitForProber(host, depth + 1);
 			}
+		}
+
+		private static bool isClientError(HttpStatusCode statusCode)
+		{
+			return (int) statusCode >= 400 && (int) statusCode <= 499;
 		}
 
 		public void SaveSettings()

@@ -36,6 +36,7 @@
 			this.textBoxProxy = new System.Windows.Forms.TextBox();
 			this.textBoxProberUri = new System.Windows.Forms.TextBox();
 			this.numericUpDownMaxRetries = new System.Windows.Forms.NumericUpDown();
+			this.checkBoxAllowClientErrors = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxRetries)).BeginInit();
 			this.SuspendLayout();
@@ -48,18 +49,21 @@
 			this.tableLayoutPanel.Controls.Add(this.checkBoxEnabled, 0, 0);
 			this.tableLayoutPanel.Controls.Add(this.labelProxy, 0, 1);
 			this.tableLayoutPanel.Controls.Add(this.labelProberUri, 0, 2);
-			this.tableLayoutPanel.Controls.Add(this.labelMaxRetries, 0, 3);
+			this.tableLayoutPanel.Controls.Add(this.labelMaxRetries, 0, 4);
 			this.tableLayoutPanel.Controls.Add(this.textBoxProxy, 1, 1);
 			this.tableLayoutPanel.Controls.Add(this.textBoxProberUri, 1, 2);
-			this.tableLayoutPanel.Controls.Add(this.numericUpDownMaxRetries, 1, 3);
+			this.tableLayoutPanel.Controls.Add(this.numericUpDownMaxRetries, 1, 4);
+			this.tableLayoutPanel.Controls.Add(this.checkBoxAllowClientErrors, 1, 3);
 			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel.Name = "tableLayoutPanel";
-			this.tableLayoutPanel.RowCount = 4;
+			this.tableLayoutPanel.RowCount = 5;
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel.Size = new System.Drawing.Size(150, 150);
 			this.tableLayoutPanel.TabIndex = 0;
 			// 
@@ -99,9 +103,9 @@
 			// 
 			this.labelMaxRetries.AutoSize = true;
 			this.labelMaxRetries.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMaxRetries.Location = new System.Drawing.Point(3, 75);
+			this.labelMaxRetries.Location = new System.Drawing.Point(3, 98);
 			this.labelMaxRetries.Name = "labelMaxRetries";
-			this.labelMaxRetries.Size = new System.Drawing.Size(63, 75);
+			this.labelMaxRetries.Size = new System.Drawing.Size(63, 52);
 			this.labelMaxRetries.TabIndex = 3;
 			this.labelMaxRetries.Text = "Max Retries";
 			// 
@@ -124,7 +128,7 @@
 			// numericUpDownMaxRetries
 			// 
 			this.numericUpDownMaxRetries.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.numericUpDownMaxRetries.Location = new System.Drawing.Point(72, 78);
+			this.numericUpDownMaxRetries.Location = new System.Drawing.Point(72, 101);
 			this.numericUpDownMaxRetries.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -133,6 +137,16 @@
 			this.numericUpDownMaxRetries.Name = "numericUpDownMaxRetries";
 			this.numericUpDownMaxRetries.Size = new System.Drawing.Size(75, 20);
 			this.numericUpDownMaxRetries.TabIndex = 6;
+			// 
+			// checkBoxAllowClientErrors
+			// 
+			this.checkBoxAllowClientErrors.AutoSize = true;
+			this.checkBoxAllowClientErrors.Location = new System.Drawing.Point(72, 78);
+			this.checkBoxAllowClientErrors.Name = "checkBoxAllowClientErrors";
+			this.checkBoxAllowClientErrors.Size = new System.Drawing.Size(75, 17);
+			this.checkBoxAllowClientErrors.TabIndex = 7;
+			this.checkBoxAllowClientErrors.Text = "Allow Client Errors (4xx)";
+			this.checkBoxAllowClientErrors.UseVisualStyleBackColor = true;
 			// 
 			// KusozakoSettingsControl
 			// 
@@ -158,5 +172,6 @@
 		private System.Windows.Forms.TextBox textBoxProxy;
 		private System.Windows.Forms.TextBox textBoxProberUri;
 		private System.Windows.Forms.NumericUpDown numericUpDownMaxRetries;
+		private System.Windows.Forms.CheckBox checkBoxAllowClientErrors;
 	}
 }
